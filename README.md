@@ -1,12 +1,17 @@
 # Summernote
-Super simple WYSIWYG Editor using Bootstrap (3.0 and 2.x).
 
-[![Build Status](https://secure.travis-ci.org/summernote/summernote.png)](http://travis-ci.org/summernote/summernote)
+Super simple WYSIWYG Editor.
+
+[![Build Status](https://travis-ci.org/summernote/summernote.svg?branch=develop)](http://travis-ci.org/summernote/summernote)
+[![npm version](https://badge.fury.io/js/summernote.svg)](http://badge.fury.io/js/summernote)
+[![Coverage Status](https://coveralls.io/repos/summernote/summernote/badge.svg?branch=develop&service=github)](https://coveralls.io/github/summernote/summernote?branch=develop)
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/summernoteis.svg)](https://saucelabs.com/u/summernoteis)
 
 ### Summernote
 Summernote is a JavaScript library that helps you create WYSIWYG editors online.
 
-Home Page: http://summernote.org
+Home page: <https://summernote.org>
 
 ### Why Summernote?
 
@@ -17,36 +22,29 @@ Summernote has a few special features:
 * Simple UI
 * Interactive WYSIWYG editing
 * Handy integration with server
-
-#### Inspired by
-* Gmail's WYSIWYG editor (http://www.gmail.com)
-* Redactor (http://imperavi.com/redactor/)
+* Supports Bootstrap 3 and 4 integrities
+* Lots of [plugins and connectors](https://github.com/summernote/awesome-summernote) provided together
 
 ### Installation and dependencies
 
-Summernote uses opensouce libraries: [jQuery](http://jquery.com/), [Bootstrap](http://getbootstrap.com), [Font Awesome](https://github.com/FortAwesome/Font-Awesome).
+Summernote is built on [jQuery](http://jquery.com/).
 
-For [Meteor](http://github.com/meteor/meteor), just run `meteor add summernote:summernote`. More info in the [Meteor README](meteor/README.md).
-
-For other/no frameworks:
-
-#### 1. include JS/CSS
+#### 1. Include JS/CSS
 
 Include the following code in the `<head>` tag of your HTML:
 
 ```html
-<!-- include libraries(jQuery, bootstrap, fontawesome) -->
-<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+<!-- include libraries(jQuery, bootstrap) -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!-- include summernote css/js-->
 <link href="summernote.css" rel="stylesheet">
-<script src="summernote.min.js"></script>
+<script src="summernote.js"></script>
 ```
 
-#### 2. target elements
+#### 2. Target a element
 
 Then place a `div` tag somewhere in the `body` tag. This element will be replaced with the summernote editor.
 
@@ -54,7 +52,7 @@ Then place a `div` tag somewhere in the `body` tag. This element will be replace
 <div id="summernote">Hello Summernote</div>
 ```
 
-#### 3. summernote
+#### 3. Summernote it!
 
 Finally, run this script after the DOM is ready:
 
@@ -64,90 +62,28 @@ $(document).ready(function() {
 });
 ```
 
+For more examples, please visit to [homepage](http://summernote.org/examples).
+
 ### API
 
 `code` - get the HTML source code underlying the text in the editor:
 
 ```javascript
-var sHTML = $('#summernote').code();
+var html = $('#summernote').summernote('code');
 ```
 
-`Destroy` summernote:
+For more detail about API, please refer to [document](http://summernote.org/getting-started/#basic-api).
 
-```javascript
-$('#summernote').destroy();
-```
+#### Warning - code injection
 
-### Supported platforms
+The code view allows the user to enter script contents. Make sure to filter/[sanitize the HTML on the server](https://github.com/search?l=JavaScript&q=sanitize+html). Otherwise, an attacker can inject arbitrary JavaScript code into clients.
 
-Any modern browser: Safari, Chrome, Firefox, Opera, Internet Explorer 9+.
-
-### Upcoming Features
-* Responsive toolbar
-* Table: Handles (sizing, selection) and popover
-* IE8 Support
-* Clipboard (you can paste images already)
-* Media object selection
-
-
-### Developer information
-
-#### structure of summernote.js
-
-```
-summernote.js - Renderer.js (Generate markup) - Locale.js (Locale object)
-              ㄴEventHandler.js - Editor.js  (Abstract editor)
-                                ㄴStyle.js   (Style Getter and Setter)
-                                ㄴHistory.js (Store on jQuery.data)
-                                ㄴToolbar.js (Toolbar module)
-                                ㄴPopover.js (Popover module)
-                                ㄴHandle.js  (Handle module)
-                                ㄴDialog.js  (Dialog module)
------------------------------Core Script-----------------------------
-  agent.js  (agent information)
-  async.js  (aysnc utility)
-  key.js    (keycode object)
-  dom.js    (dom functions)
-  list.js   (list functions)
-  range.js  (W3CRange extention)
----------------------------------------------------------------------
-```
-
-#### build summernote
-```bash
-# grunt-cli is need by grunt; you might have this installed already
-npm install -g grunt-cli
-npm install
-
-# build full version of summernote: dist/summernote.js
-grunt build
-
-# generate minified copy: dist/summernote.min.js, dist/summernote.css
-grunt dist
-```
-At this point, you should now have a `build/` directory populated with everything you need to use summernote.
-
-#### test summernote
-run tests with PhantomJS
-```bash
-grunt test
-```
-
-#### start local server for developing summernote.
-run local server with connect and watch.
-```bash
-# this will open a browser on http://localhost:3000.
-grunt server
-# If you change source code, automatically reload your page.
-```
-
-#### Coding convention
-* JSHint: http://www.jshint.com/about/
-* JSHint rule: https://github.com/summernote/summernote/blob/master/.jshintrc
+### For contributing
+https://github.com/summernote/summernote/blob/develop/CONTRIBUTING.md
 
 ### Contacts
-* Email: susukang98@gmail.com
-* Twitter: http://twitter.com/hackerwins
+* Facebook user group: https://www.facebook.com/groups/summernote
+* Summernote Slack: [Join the Summernote Slack community](https://communityinviter.com/apps/summernote/summernote)
 
 ### License
-summernote may be freely distributed under the MIT license.
+Summernote may be freely distributed under the MIT license.

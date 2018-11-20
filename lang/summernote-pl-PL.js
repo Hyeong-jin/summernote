@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'pl-PL': {
       font: {
@@ -7,7 +7,11 @@
         underline: 'Podkreślenie',
         clear: 'Usuń formatowanie',
         height: 'Interlinia',
-        name: 'Czcionka'
+        name: 'Czcionka',
+        strikethrough: 'Przekreślenie',
+        subscript: 'Indeks dolny',
+        superscript: 'Indeks górny',
+        size: 'Rozmiar'
       },
       image: {
         image: 'Grafika',
@@ -18,10 +22,25 @@
         floatLeft: 'Po lewej',
         floatRight: 'Po prawej',
         floatNone: 'Równo z tekstem',
-        dragImageHere: 'Przeciągnij grafikę tutaj',
+        shapeRounded: 'Kształt: zaokrąglone',
+        shapeCircle: 'Kształt: okrąg',
+        shapeThumbnail: 'Kształt: miniatura',
+        shapeNone: 'Kształt: brak',
+        dragImageHere: 'Przeciągnij grafikę lub tekst tutaj',
+        dropImage: 'Przeciągnij grafikę lub tekst',
         selectFromFiles: 'Wybierz z dysku',
-        url: 'URL grafiki',
-        remove: 'Usuń grafikę'
+        maximumFileSize: 'Limit wielkości pliku',
+        maximumFileSizeError: 'Przekroczono limit wielkości pliku.',
+        url: 'Adres URL grafiki',
+        remove: 'Usuń grafikę',
+        original: 'Oryginał'
+      },
+      video: {
+        video: 'Wideo',
+        videoLink: 'Adres wideo',
+        insert: 'Wstaw wideo',
+        url: 'Adres wideo',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion lub Youku)'
       },
       link: {
         link: 'Odnośnik',
@@ -29,18 +48,25 @@
         unlink: 'Usuń odnośnik',
         edit: 'Edytuj',
         textToDisplay: 'Tekst do wyświetlenia',
-        url: 'Na jaki URL powinien przenosić ten link?',
+        url: 'Na jaki adres URL powinien przenosić ten odnośnik?',
         openInNewWindow: 'Otwórz w nowym oknie'
       },
       table: {
-        table: 'Tabela'
+        table: 'Tabela',
+        addRowAbove: 'Dodaj wiersz powyżej',
+        addRowBelow: 'Dodaj wiersz poniżej',
+        addColLeft: 'Dodaj kolumnę po lewej',
+        addColRight: 'Dodaj kolumnę po prawej',
+        delRow: 'Usuń wiersz',
+        delCol: 'Usuń kolumnę',
+        delTable: 'Usuń tabelę'
       },
       hr: {
         insert: 'Wstaw poziomą linię'
       },
       style: {
-        style: 'Style',
-        normal: 'Normalny',
+        style: 'Styl',
+        p: 'pny',
         blockquote: 'Cytat',
         pre: 'Kod',
         h1: 'Nagłówek 1',
@@ -57,7 +83,7 @@
       options: {
         help: 'Pomoc',
         fullscreen: 'Pełny ekran',
-        codeview: 'Zródło'
+        codeview: 'Źródło'
       },
       paragraph: {
         paragraph: 'Akapit',
@@ -75,20 +101,54 @@
         foreground: 'Czcionka',
         transparent: 'Przeźroczysty',
         setTransparent: 'Przeźroczyste',
-        reset: 'Reset',
+        reset: 'Zresetuj',
         resetToDefault: 'Domyślne'
       },
       shortcut: {
-        shortcuts: 'Skróty klawiszone',
+        shortcuts: 'Skróty klawiaturowe',
         close: 'Zamknij',
         textFormatting: 'Formatowanie tekstu',
         action: 'Akcja',
         paragraphFormatting: 'Formatowanie akapitu',
-        documentStyle: 'Styl dokumentu'
+        documentStyle: 'Styl dokumentu',
+        extraKeys: 'Dodatkowe klawisze'
+      },
+      help: {
+        'insertParagraph': 'Wstaw paragraf',
+        'undo': 'Cofnij poprzednią operację',
+        'redo': 'Przywróć poprzednią operację',
+        'tab': 'Tabulacja',
+        'untab': 'Usuń tabulację',
+        'bold': 'Pogrubienie',
+        'italic': 'Kursywa',
+        'underline': 'Podkreślenie',
+        'strikethrough': 'Przekreślenie',
+        'removeFormat': 'Usuń formatowanie',
+        'justifyLeft': 'Wyrównaj do lewej',
+        'justifyCenter': 'Wyrównaj do środka',
+        'justifyRight': 'Wyrównaj do prawej',
+        'justifyFull': 'Justyfikacja',
+        'insertUnorderedList': 'Nienumerowana lista',
+        'insertOrderedList': 'Wypunktowana lista',
+        'outdent': 'Zmniejsz wcięcie paragrafu',
+        'indent': 'Zwiększ wcięcie paragrafu',
+        'formatPara': 'Zamień format bloku na paragraf (tag P)',
+        'formatH1': 'Zamień format bloku na H1',
+        'formatH2': 'Zamień format bloku na H2',
+        'formatH3': 'Zamień format bloku na H3',
+        'formatH4': 'Zamień format bloku na H4',
+        'formatH5': 'Zamień format bloku na H5',
+        'formatH6': 'Zamień format bloku na H6',
+        'insertHorizontalRule': 'Wstaw poziomą linię',
+        'linkDialog.show': 'Pokaż dialog linkowania'
       },
       history: {
         undo: 'Cofnij',
         redo: 'Ponów'
+      },
+      specialChar: {
+        specialChar: 'ZNAKI SPECJALNE',
+        select: 'Wybierz Znak specjalny'
       }
     }
   });

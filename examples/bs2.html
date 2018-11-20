@@ -2,27 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
-  <title>summernote</title>
-  <!-- include jquery -->
-  <script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Summernote Lite - Bootstrap 2</title>
 
-  <!-- include libraries BS2 -->
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> 
-  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script> 
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
+  <!-- include jquery -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+  <!-- include libs stylesheets -->
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+  <script src="//stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
   <!-- include summernote -->
-  <link rel="stylesheet" href="../dist/summernote.css">
-  <script type="text/javascript" src="../dist/summernote.js"></script>
+  <link rel="stylesheet" href="../dist/summernote-lite.css">
+  <script type="text/javascript" src="../dist/summernote-lite.js"></script>
 
+  <link rel="stylesheet" href="example.css">
   <script type="text/javascript">
     $(document).ready(function() {
-      $('.summernote').summernote({height: 200});
+      $('.summernote').summernote({
+        height: 300,
+        tabsize: 2
+      });
     });
   </script>
 </head>
 <body>
-<div class="summernote"></div>
+<div class="container">
+  <h1>Summernote Lite with Bootstrap 2</h1>
+  <p>
+    <span class="label label-primary">jQuery v3.3.1</span>
+    <span class="label label-info">Bootstrap v2.3.2</span>
+  </p>
+  <div class="summernote"></div>
+</div>
 </body>
 </html>
